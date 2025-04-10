@@ -5,6 +5,11 @@ require('dotenv').config();
 const app = express();
 const PORT = 3000;
 
+// Health route
+app.get('/', (req, res) => {
+  res.status(200).json({ status: 'OK', message: 'Server is running' });
+});
+
 app.get('/masters/leaderboard', async (req, res) => {
   const options = {
     method: 'GET',
